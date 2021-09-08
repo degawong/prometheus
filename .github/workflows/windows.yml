@@ -1,0 +1,23 @@
+name: windows
+
+on: 
+    workflow_dispatch:
+    schedule:
+    # * is a special character in YAML so you have to quote this string
+    # https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#scheduled-events
+      - cron:  '0 0 * * 5'
+
+jobs:
+  linux:
+    runs-on: linux-latest
+    strategy:
+      matrix:
+        algorithms: [arcsoft_comic_filter, arcsoft_film_filter, arcsoft_greatwall_filter, arcsoft_image_saturation]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: snickerbockers/submodules-init@v4
+    - uses: actions/cache@v2
+    - name: test algorithm
+      working-directory: ${{github.workspace}}
+      run: |
+        pip install pytest
