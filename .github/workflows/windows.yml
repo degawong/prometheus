@@ -9,10 +9,10 @@ on:
 
 jobs:
   linux:
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        algorithms: [arcsoft_comic_filter, arcsoft_film_filter, arcsoft_greatwall_filter, arcsoft_image_saturation]
+        algorithms: [python]
     steps:
     - uses: actions/checkout@v2
     - uses: snickerbockers/submodules-init@v4
