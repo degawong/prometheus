@@ -1,10 +1,10 @@
 '''
 Author: your name
 Date: 2021-09-08 14:43:39
-LastEditTime: 2021-09-08 16:58:08
+LastEditTime: 2021-09-10 09:18:44
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
-FilePath: \prometheus\attention\pytorch\se_net.py
+FilePath: \prometheus\attention\pytorch\senet.py
 '''
 
 import torch
@@ -12,12 +12,12 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 
-class se_net(nn.Module):
+class SeNet(nn.Module):
     """
     reference https://github.com/moskomule/senet.pytorch
     """
     def __init__(self, channels, reduction=16):
-        super(se_net, self).__init__()
+        super(SeNet, self).__init__()
         assert (channels // reduction) > 0, "channels  // reduction should bigger than zero"
         self.__avg_pool = nn.AdaptiveAvgPool2d(1)
         self.__fc = nn.Sequential(
@@ -35,7 +35,7 @@ class se_net(nn.Module):
 if __name__ == '__main__':
     torch.manual_seed(seed = 2021)
     data_in = torch.randn(1, 3, 256, 256)
-    se = se_net(3, 1)
+    se = SeNet(3, 1)
     data_out = se(data_in)
     print(data_in)
     print(data_out)

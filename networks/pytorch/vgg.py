@@ -1,7 +1,7 @@
 '''
 Author: your name
 Date: 2021-09-08 17:12:26
-LastEditTime: 2021-09-09 08:32:03
+LastEditTime: 2021-09-09 17:22:29
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: \prometheus\networks\pytorch\vgg.py
@@ -15,12 +15,11 @@ import torch.optim as optim
 from torchvision import models
 from collections import namedtuple
 
-class vgg16():
+class Vgg16():
     def __init__(self) -> None:
         self.__network = models.vgg16()
 
-
-class vgg19(nn.Module):
+class Vgg19(nn.Module):
     def __init__(self, requires_grad=False):
         super(vgg19, self).__init__()
         vgg_pretrained_features = models.vgg.vgg19(pretrained=True).features
