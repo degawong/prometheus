@@ -39,7 +39,8 @@ build/
 workspace/
 algorithm/debug/
 algorithm/android/
-.vs/
-.vscode/
+.vs
+.vscode
 2022
 node_modules
+.pytest_cache
